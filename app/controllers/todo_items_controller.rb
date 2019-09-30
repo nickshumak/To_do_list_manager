@@ -22,6 +22,11 @@ class TodoItemsController < ApplicationController
     redirect_to @todo_list, notice: 'Todo item completed'
   end
 
+  def edit
+    @todo_item.update_attribute(:edited_at, Time.now)
+    redirect_to @todo_list, notice: 'Todo item edit'
+  end
+
   private
 
   def set_todo_list
